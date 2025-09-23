@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, ArrowRight, Award } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
 
 const Login: React.FC = () => {
@@ -26,21 +26,29 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-12">
+    <div className="min-h-screen flex items-center justify-center px-6 py-12 bg-[#08070A] relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#FFD777]/5 pointer-events-none"></div>
+      
       <div className="max-w-md w-full">
         <FadeInUp>
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 relative">
+            <div className="flex justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#FFD777] rounded-2xl flex items-center justify-center shadow-lg shadow-[#D4AF37]/25">
+                <Award className="w-8 h-8 text-[#08070A]" />
+              </div>
+            </div>
             <h1 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
               Welcome Back
             </h1>
-            <p className="text-[#ECE8E3]/80">
+            <p className="text-[#ECE8E3]/70 text-lg">
               Sign in to your Gallaa account to continue
             </p>
           </div>
         </FadeInUp>
 
         <FadeInUp delay={100}>
-          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
+          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 backdrop-blur-sm shadow-xl shadow-black/10">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
@@ -55,7 +63,7 @@ const Login: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none text-[#ECE8E3] placeholder-[#ECE8E3]/50"
+                    className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -74,7 +82,7 @@ const Login: React.FC = () => {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-12 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none text-[#ECE8E3] placeholder-[#ECE8E3]/50"
+                    className="w-full pl-10 pr-12 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                     placeholder="Enter your password"
                   />
                   <button
@@ -105,7 +113,7 @@ const Login: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-300 flex items-center justify-center"
+                className="w-full px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center transform"
               >
                 Sign In
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -127,11 +135,11 @@ const Login: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-2 gap-4">
-                <button className="flex items-center justify-center px-4 py-2 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37]/50 transition-colors">
+                <button className="flex items-center justify-center px-4 py-2 bg-[#ECE8E3]/5 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/10 transition-all duration-200">
                   <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" className="w-5 h-5 mr-2" />
                   <span className="text-sm">Google</span>
                 </button>
-                <button className="flex items-center justify-center px-4 py-2 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37]/50 transition-colors">
+                <button className="flex items-center justify-center px-4 py-2 bg-[#ECE8E3]/5 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/10 transition-all duration-200">
                   <div className="w-5 h-5 bg-blue-600 rounded mr-2 flex items-center justify-center">
                     <span className="text-white text-xs font-bold">f</span>
                   </div>
