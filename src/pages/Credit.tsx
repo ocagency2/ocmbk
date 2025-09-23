@@ -1,126 +1,90 @@
 import React, { useState } from 'react';
 import { 
-  CreditCard, 
+  Package, 
   TrendingUp, 
   Shield, 
   Clock, 
   CheckCircle, 
   Calculator,
   ArrowRight,
-  DollarSign,
-  FileText,
   Users
 } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
 
-const Credit: React.FC = () => {
-  const [loanAmount, setLoanAmount] = useState(1000000);
-  const [tenure, setTenure] = useState(12);
+const StockCredit: React.FC = () => {
+  const [stockQuantity, setStockQuantity] = useState(10000); // default 10k items
+  const [stockValuePerItem, setStockValuePerItem] = useState(500); // ₹500/item
   const [businessType, setBusinessType] = useState('retailer');
+  const [creditScore, setCreditScore] = useState(750); // sample score
 
-  const calculateEMI = () => {
-    const rate = 0.12 / 12; // 12% annual rate
-    const emi = (loanAmount * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
-    return Math.round(emi);
+  const calculateStockWorth = () => {
+    return stockQuantity * stockValuePerItem;
+  };
+
+  const calculateRepayment = () => {
+    // Retailer pays only for sold items
+    const assumedSellRate = 0.7; // e.g. 70% sell-through
+    return Math.round(stockQuantity * stockValuePerItem * assumedSellRate);
   };
 
   const creditFeatures = [
     {
-      icon: Clock,
-      title: "Instant Approval",
-      description: "Get credit decisions in under 24 hours with our AI-powered assessment system.",
-      benefit: "No waiting, start trading immediately"
+      icon: Package,
+      title: "Risk-Free Stock Access",
+      description: "Get inventory on credit. Pay only for what you sell, return the rest.",
+      benefit: "Zero upfront cost"
     },
     {
       icon: TrendingUp,
-      title: "Flexible Credit Limits",
-      description: "Credit lines from ₹1L to ₹50L+ based on your business profile and transaction history.",
-      benefit: "Grow your credit as your business grows"
+      title: "Scalable Credit Score",
+      description: "Your repayment history builds your credit score. Higher score = higher stock allocation.",
+      benefit: "Grow faster with trust"
     },
     {
       icon: Shield,
-      title: "Competitive Rates",
-      description: "Starting from 12% per annum with transparent pricing and no hidden charges.",
-      benefit: "Save on financing costs"
+      title: "Supervised by Gallaa",
+      description: "We handle returns, reporting, and accountability between retailers and manufacturers.",
+      benefit: "No stress on either side"
     },
     {
-      icon: FileText,
-      title: "Minimal Documentation",
-      description: "Simple application process with digital document submission and verification.",
-      benefit: "Quick and hassle-free approval"
-    }
-  ];
-
-  const eligibilityCriteria = [
-    "GST registered business with minimum 1 year of operations",
-    "Annual turnover of ₹25L+ for retailers, ₹50L+ for manufacturers",
-    "Clean credit history with no defaults in last 12 months",
-    "Valid business licenses and regulatory compliance",
-    "Bank statements for last 6 months",
-    "Audited financial statements (if applicable)"
-  ];
-
-  const applicationProcess = [
-    {
-      step: 1,
-      title: "Apply Online",
-      description: "Fill out our simple application form with basic business details.",
-      time: "5 minutes"
-    },
-    {
-      step: 2,
-      title: "Document Upload",
-      description: "Upload required documents through our secure portal.",
-      time: "10 minutes"
-    },
-    {
-      step: 3,
-      title: "AI Assessment",
-      description: "Our AI system analyzes your application and generates a risk score.",
-      time: "2-4 hours"
-    },
-    {
-      step: 4,
-      title: "Credit Decision",
-      description: "Receive approval notification with credit limit and terms.",
-      time: "24 hours"
-    },
-    {
-      step: 5,
-      title: "Start Trading",
-      description: "Begin using your credit line for inventory purchases immediately.",
-      time: "Instant"
+      icon: Users,
+      title: "Shared Manufacturer Network",
+      description: "Access stock from multiple manufacturers at once — diversify your catalog easily.",
+      benefit: "One platform, many partners"
     }
   ];
 
   return (
     <div className="px-6 py-8">
       <div className="max-w-7xl mx-auto">
+        
         {/* Header */}
         <FadeInUp className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold mb-6">
-            Smart Credit Solutions
+            Smart Stock Credit
           </h1>
           <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
-            Access instant credit lines up to ₹50L+ with our AI-powered assessment system. 
-            Fuel your business growth with flexible financing tailored for luxury trade.
+            Access stock inventory on credit without upfront payments. 
+            Sell first, pay later — while building your Gallaa credit score.
           </p>
         </FadeInUp>
 
-        {/* Credit Calculator */}
+        {/* Stock Credit Calculator */}
         <FadeInUp delay={100} className="mb-20">
           <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-2xl p-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-4">
-                Credit Calculator
+                Stock Credit Calculator
               </h2>
               <p className="text-[#ECE8E3]/80">
-                Calculate your potential EMI and see how much credit you can access
+                Estimate your allocated stock and repayment potential
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
+                
+                {/* Business Type */}
                 <div>
                   <label className="block text-sm font-medium mb-2">Business Type</label>
                   <select
@@ -134,74 +98,79 @@ const Credit: React.FC = () => {
                   </select>
                 </div>
 
+                {/* Stock Quantity */}
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Credit Amount: ₹{loanAmount.toLocaleString()}
+                    Stock Quantity: {stockQuantity.toLocaleString()} items
                   </label>
                   <input
                     type="range"
-                    min="100000"
-                    max="5000000"
-                    step="50000"
-                    value={loanAmount}
-                    onChange={(e) => setLoanAmount(Number(e.target.value))}
+                    min="1000"
+                    max="50000"
+                    step="500"
+                    value={stockQuantity}
+                    onChange={(e) => setStockQuantity(Number(e.target.value))}
                     className="w-full h-2 bg-[#ECE8E3]/20 rounded-lg appearance-none cursor-pointer slider"
                   />
                   <div className="flex justify-between text-sm text-[#ECE8E3]/60 mt-1">
-                    <span>₹1L</span>
-                    <span>₹50L</span>
+                    <span>1k</span>
+                    <span>50k</span>
                   </div>
                 </div>
 
+                {/* Value Per Item */}
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Tenure: {tenure} months
+                    Value Per Item: ₹{stockValuePerItem}
                   </label>
                   <input
                     type="range"
-                    min="6"
-                    max="36"
-                    step="6"
-                    value={tenure}
-                    onChange={(e) => setTenure(Number(e.target.value))}
+                    min="100"
+                    max="5000"
+                    step="50"
+                    value={stockValuePerItem}
+                    onChange={(e) => setStockValuePerItem(Number(e.target.value))}
                     className="w-full h-2 bg-[#ECE8E3]/20 rounded-lg appearance-none cursor-pointer slider"
                   />
                   <div className="flex justify-between text-sm text-[#ECE8E3]/60 mt-1">
-                    <span>6 months</span>
-                    <span>36 months</span>
+                    <span>₹100</span>
+                    <span>₹5000</span>
                   </div>
                 </div>
               </div>
 
+              {/* Stock Summary */}
               <div className="bg-[#ECE8E3]/5 rounded-xl p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   <Calculator className="w-5 h-5 mr-2 text-[#D4AF37]" />
-                  Loan Summary
+                  Stock Summary
                 </h3>
                 
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-[#ECE8E3]/70">Loan Amount</span>
-                    <span className="font-semibold">₹{loanAmount.toLocaleString()}</span>
+                    <span className="text-[#ECE8E3]/70">Allocated Stock</span>
+                    <span className="font-semibold">{stockQuantity.toLocaleString()} items</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#ECE8E3]/70">Interest Rate</span>
-                    <span className="font-semibold">12% p.a.</span>
+                    <span className="text-[#ECE8E3]/70">Value Per Item</span>
+                    <span className="font-semibold">₹{stockValuePerItem}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#ECE8E3]/70">Tenure</span>
-                    <span className="font-semibold">{tenure} months</span>
+                    <span className="text-[#ECE8E3]/70">Total Stock Worth</span>
+                    <span className="font-semibold">₹{calculateStockWorth().toLocaleString()}</span>
                   </div>
                   <div className="border-t border-[#ECE8E3]/20 pt-4">
                     <div className="flex justify-between text-lg">
-                      <span className="text-[#ECE8E3]/70">Monthly EMI</span>
-                      <span className="font-bold text-[#D4AF37]">₹{calculateEMI().toLocaleString()}</span>
+                      <span className="text-[#ECE8E3]/70">Expected Repayment (70% sell)</span>
+                      <span className="font-bold text-[#D4AF37]">
+                        ₹{calculateRepayment().toLocaleString()}
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <button className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-300">
-                  Apply for Credit
+                  Request Stock Credit
                   <ArrowRight className="inline-block w-4 h-4 ml-2" />
                 </button>
               </div>
@@ -209,14 +178,14 @@ const Credit: React.FC = () => {
           </div>
         </FadeInUp>
 
-        {/* Credit Features */}
+        {/* Features */}
         <FadeInUp delay={200} className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
-              Why Choose Gallaa Credit?
+              Why Choose Gallaa Stock Credit?
             </h2>
             <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
-              Designed specifically for luxury trade businesses with features that understand your unique needs.
+              Designed for B2B trade: risk-free inventory, flexible scaling, and AI-powered trust scoring.
             </p>
           </div>
 
@@ -238,103 +207,9 @@ const Credit: React.FC = () => {
             ))}
           </div>
         </FadeInUp>
-
-        {/* Application Process */}
-        <FadeInUp delay={400} className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
-              Simple Application Process
-            </h2>
-            <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
-              Get approved in 5 simple steps. Our streamlined process ensures quick decisions without compromising on security.
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-[#D4AF37] to-[#FFD777] hidden md:block"></div>
-            
-            <div className="space-y-12">
-              {applicationProcess.map((step, index) => (
-                <FadeInUp key={index} delay={500 + index * 100}>
-                  <div className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8`}>
-                    <div className="flex-1">
-                      <div className={`p-6 bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                        <div className="flex items-center justify-between mb-3">
-                          <h3 className="text-xl font-semibold">{step.title}</h3>
-                          <span className="text-sm text-[#D4AF37] bg-[#D4AF37]/20 px-2 py-1 rounded">
-                            {step.time}
-                          </span>
-                        </div>
-                        <p className="text-[#ECE8E3]/70">{step.description}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#FFD777] rounded-full flex items-center justify-center text-[#08070A] font-bold text-lg flex-shrink-0 relative z-10">
-                      {step.step}
-                    </div>
-                    
-                    <div className="flex-1 hidden md:block"></div>
-                  </div>
-                </FadeInUp>
-              ))}
-            </div>
-          </div>
-        </FadeInUp>
-
-        {/* Eligibility Criteria */}
-        <FadeInUp delay={600} className="mb-20">
-          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-4">
-                Eligibility Criteria
-              </h2>
-              <p className="text-xl text-[#ECE8E3]/80">
-                Check if you meet our requirements for credit approval
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {eligibilityCriteria.map((criteria, index) => (
-                <div key={index} className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-[#D4AF37] mt-0.5 mr-3 flex-shrink-0" />
-                  <span className="text-[#ECE8E3]/80">{criteria}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-8">
-              <button className="px-8 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-300">
-                Check Eligibility
-                <ArrowRight className="inline-block w-4 h-4 ml-2" />
-              </button>
-            </div>
-          </div>
-        </FadeInUp>
-
-        {/* CTA Section */}
-        <FadeInUp delay={700} className="text-center">
-          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-2xl p-12">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6">
-              Ready to Accelerate Your Business Growth?
-            </h2>
-            <p className="text-xl text-[#ECE8E3]/80 mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses already using Gallaa Credit to scale their operations and increase profitability.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold text-lg rounded-lg hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-300">
-                Apply Now
-                <ArrowRight className="inline-block w-5 h-5 ml-2" />
-              </button>
-              <button className="px-8 py-4 border border-[#ECE8E3]/20 hover:border-[#D4AF37] rounded-lg transition-colors">
-                Schedule Consultation
-              </button>
-            </div>
-          </div>
-        </FadeInUp>
       </div>
     </div>
   );
 };
 
-export default Credit;
+export default StockCredit;
