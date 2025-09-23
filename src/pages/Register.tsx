@@ -282,7 +282,7 @@ const Register: React.FC = () => {
                         value={formData.businessName}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                         placeholder={userType === 'manufacturer' ? 'Your company name' : 'Your business name'}
                       />
                     </div>
@@ -295,7 +295,7 @@ const Register: React.FC = () => {
                         value={formData.contactPerson}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                         placeholder="Primary contact person"
                       />
                     </div>
@@ -308,7 +308,7 @@ const Register: React.FC = () => {
                         value={formData.gstNumber}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                         placeholder="22AAAAA0000A1Z5"
                       />
                     </div>
@@ -320,7 +320,7 @@ const Register: React.FC = () => {
                         name="panNumber"
                         value={formData.panNumber}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                        className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                         placeholder="ABCDE1234F"
                       />
                     </div>
@@ -333,13 +333,13 @@ const Register: React.FC = () => {
                           value={formData.annualRevenue}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                          className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] transition-all duration-200"
                         >
-                          <option value="">Select range</option>
-                          <option value="50L-1Cr">₹50L - ₹1Cr</option>
-                          <option value="1Cr-5Cr">₹1Cr - ₹5Cr</option>
-                          <option value="5Cr-10Cr">₹5Cr - ₹10Cr</option>
-                          <option value="10Cr+">₹10Cr+</option>
+                          <option value="" className="bg-[#08070A] text-[#ECE8E3]">Select range</option>
+                          <option value="50L-1Cr" className="bg-[#08070A] text-[#ECE8E3]">₹50L - ₹1Cr</option>
+                          <option value="1Cr-5Cr" className="bg-[#08070A] text-[#ECE8E3]">₹1Cr - ₹5Cr</option>
+                          <option value="5Cr-10Cr" className="bg-[#08070A] text-[#ECE8E3]">₹5Cr - ₹10Cr</option>
+                          <option value="10Cr+" className="bg-[#08070A] text-[#ECE8E3]">₹10Cr+</option>
                         </select>
                       </div>
                     )}
@@ -353,13 +353,13 @@ const Register: React.FC = () => {
                             value={formData.businessType}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] transition-all duration-200"
                           >
-                            <option value="">Select type</option>
-                            <option value="retail">Retail Store</option>
-                            <option value="wholesale">Wholesale</option>
-                            <option value="online">Online Store</option>
-                            <option value="hybrid">Hybrid</option>
+                            <option value="" className="bg-[#08070A] text-[#ECE8E3]">Select type</option>
+                            <option value="retail" className="bg-[#08070A] text-[#ECE8E3]">Retail Store</option>
+                            <option value="wholesale" className="bg-[#08070A] text-[#ECE8E3]">Wholesale</option>
+                            <option value="online" className="bg-[#08070A] text-[#ECE8E3]">Online Store</option>
+                            <option value="hybrid" className="bg-[#08070A] text-[#ECE8E3]">Hybrid</option>
                           </select>
                         </div>
 
@@ -371,7 +371,7 @@ const Register: React.FC = () => {
                             value={formData.storeLocations}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                             placeholder="1"
                             min="1"
                           />
@@ -456,7 +456,7 @@ const Register: React.FC = () => {
                   <button
                     type="button"
                     onClick={handlePrevious}
-                    className="px-6 py-3 border border-[#ECE8E3]/20 hover:border-[#D4AF37] rounded-lg transition-colors"
+                    className="px-6 py-3 border border-[#ECE8E3]/20 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 rounded-lg transition-all duration-200"
                   >
                     Previous
                   </button>
@@ -468,7 +468,7 @@ const Register: React.FC = () => {
                       type="button"
                       onClick={handleNext}
                       disabled={currentStep === 1 && !userType}
-                      className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                      className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center transform"
                     >
                       Next
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -477,7 +477,7 @@ const Register: React.FC = () => {
                     <button
                       type="submit"
                       disabled={!formData.agreeToTerms || !formData.agreeToPrivacy}
-                      className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                      className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center transform"
                     >
                       Create Account
                       <ArrowRight className="w-4 h-4 ml-2" />

@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix select dropdown styling */
+select {
+  color: #ECE8E3 !important;
+  background-color: rgba(236, 232, 227, 0.1) !important;
+}
+
+select option {
+  background-color: #08070A !important;
+  color: #ECE8E3 !important;
+  padding: 8px !important;
+}
+
+/* Fix input focus states */
+input:focus, select:focus, textarea:focus {
+  outline: none !important;
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;
+}
+
 /* Custom slider styles */
 .slider::-webkit-slider-thumb {
   appearance: none;

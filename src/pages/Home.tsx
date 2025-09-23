@@ -25,7 +25,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setSlideIndex((prev) => (prev + 1) % slidePhrases.length);
-    }, 3000); // change every 3 seconds
+    }, 2500); // change every 2.5 seconds
     return () => clearInterval(timer);
   }, []);
   

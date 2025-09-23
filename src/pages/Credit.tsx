@@ -90,11 +90,11 @@ const StockCredit: React.FC = () => {
                   <select
                     value={businessType}
                     onChange={(e) => setBusinessType(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] transition-all duration-200"
                   >
-                    <option value="retailer">Retailer</option>
-                    <option value="manufacturer">Manufacturer</option>
-                    <option value="distributor">Distributor</option>
+                    <option value="retailer" className="bg-[#08070A] text-[#ECE8E3]">Retailer</option>
+                    <option value="manufacturer" className="bg-[#08070A] text-[#ECE8E3]">Manufacturer</option>
+                    <option value="distributor" className="bg-[#08070A] text-[#ECE8E3]">Distributor</option>
                   </select>
                 </div>
 

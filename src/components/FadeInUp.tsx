@@ -40,10 +40,10 @@ const FadeInUp: React.FC<FadeInUpProps> = ({ children, delay = 0, className = ""
   return (
     <div
       ref={ref}
-      className={`transform transition-all duration-[560ms] cubic-bezier(.22,.9,.26,1) ${
+      className={`transform transition-all duration-300 ease-out ${
         isIntersecting 
           ? 'translate-y-0 opacity-100' 
-          : 'translate-y-8 opacity-0'
+          : 'translate-y-4 opacity-0'
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >

@@ -197,11 +197,11 @@ const Marketplace: React.FC = () => {
                   Showing {filteredProducts.length} of {products.length} products
                 </p>
                 <select className="px-4 py-2 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none">
-                  <option>Sort by: Featured</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
-                  <option>Rating</option>
-                  <option>Newest</option>
+                  <option className="bg-[#08070A] text-[#ECE8E3]">Sort by: Featured</option>
+                  <option className="bg-[#08070A] text-[#ECE8E3]">Price: Low to High</option>
+                  <option className="bg-[#08070A] text-[#ECE8E3]">Price: High to Low</option>
+                  <option className="bg-[#08070A] text-[#ECE8E3]">Rating</option>
+                  <option className="bg-[#08070A] text-[#ECE8E3]">Newest</option>
                 </select>
               </div>
             </FadeInUp>
