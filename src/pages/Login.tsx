@@ -13,7 +13,6 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
     console.log('Login attempt:', formData);
   };
 
@@ -26,144 +25,155 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-12 bg-[#08070A] relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#FFD777]/5 pointer-events-none"></div>
-      
-      <div className="max-w-md w-full">
-        <FadeInUp>
-          <div className="text-center mb-8 relative">
-            <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#FFD777] rounded-2xl flex items-center justify-center shadow-lg shadow-[#D4AF37]/25">
-                <Award className="w-8 h-8 text-[#08070A]" />
-              </div>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
-              Welcome Back
-            </h1>
-            <p className="text-[#ECE8E3]/70 text-lg">
-              Sign in to your Gallaa account to continue
-            </p>
+    <div className="min-h-screen flex bg-[#08070A] text-[#ECE8E3] relative overflow-hidden">
+      {/* Left Side Branding Panel */}
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/10 items-center justify-center p-12 relative">
+        <div className="max-w-md text-center">
+          <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#D4AF37] to-[#FFD777] rounded-2xl flex items-center justify-center shadow-xl shadow-[#D4AF37]/30 mb-8">
+            <Award className="w-10 h-10 text-[#08070A]" />
           </div>
-        </FadeInUp>
+          <h2 className="text-4xl font-['Playfair_Display'] font-bold mb-4 leading-tight">
+            India’s Premier <span className="text-[#D4AF37]">Luxury B2B</span> Platform
+          </h2>
+          <p className="text-[#ECE8E3]/70 text-lg leading-relaxed">
+            Trade with confidence. Access curated inventory and credit solutions tailored for modern businesses.
+          </p>
+        </div>
+      </div>
 
-        <FadeInUp delay={100}>
-          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 backdrop-blur-sm shadow-xl shadow-black/10">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email Address
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#ECE8E3]/50" />
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
-                    placeholder="Enter your email"
-                  />
+      {/* Right Side Login Form */}
+      <div className="flex-1 flex items-center justify-center px-6 sm:px-12 py-12">
+        <div className="w-full max-w-md">
+          <FadeInUp>
+            <div className="text-center mb-10">
+              <h1 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-3">
+                Welcome Back
+              </h1>
+              <p className="text-[#ECE8E3]/60">Sign in to continue to Gallaa</p>
+            </div>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 shadow-xl shadow-black/20 backdrop-blur-sm">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#ECE8E3]/50" />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="Enter your email"
+                      className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/40 focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] outline-none transition"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="password" className="block text-sm font-medium mb-2">
-                  Password
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#ECE8E3]/50" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    id="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                    className="w-full pl-10 pr-12 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
-                    placeholder="Enter your password"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#ECE8E3]/50 hover:text-[#D4AF37] transition-colors"
+                {/* Password */}
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium mb-2">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#ECE8E3]/50" />
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      id="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      required
+                      placeholder="Enter your password"
+                      className="w-full pl-10 pr-12 py-3 rounded-lg bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/40 focus:ring-2 focus:ring-[#D4AF37]/30 focus:border-[#D4AF37] outline-none transition"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[#ECE8E3]/50 hover:text-[#D4AF37] transition"
+                    >
+                      {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Remember Me / Forgot */}
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center">
+                    <input
+                      type="checkbox"
+                      name="rememberMe"
+                      checked={formData.rememberMe}
+                      onChange={handleChange}
+                      className="w-4 h-4 rounded border-[#ECE8E3]/30 bg-[#ECE8E3]/10 text-[#D4AF37] focus:ring-[#D4AF37]"
+                    />
+                    <span className="ml-2 text-sm text-[#ECE8E3]/70">Remember me</span>
+                  </label>
+                  <Link
+                    to="/forgot-password"
+                    className="text-sm text-[#D4AF37] hover:text-[#FFD777] transition-colors"
                   >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    Forgot password?
+                  </Link>
+                </div>
+
+                {/* Sign In */}
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-lg bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold hover:shadow-lg hover:shadow-[#D4AF37]/30 transform hover:-translate-y-0.5 transition flex items-center justify-center"
+                >
+                  Sign In
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </button>
+              </form>
+
+              {/* Social Logins */}
+              <div className="mt-8">
+                <div className="text-center text-sm text-[#ECE8E3]/50 mb-4">Or continue with</div>
+                <div className="flex gap-4">
+                  <button className="flex-1 flex items-center justify-center py-2 rounded-lg bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/15 transition">
+                    <img
+                      src="https://developers.google.com/identity/images/g-logo.png"
+                      alt="Google"
+                      className="w-5 h-5 mr-2"
+                    />
+                    <span className="text-sm">Google</span>
+                  </button>
+                  <button className="flex-1 flex items-center justify-center py-2 rounded-lg bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/15 transition">
+                    <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center mr-2">
+                      <span className="text-white text-xs font-bold">f</span>
+                    </div>
+                    <span className="text-sm">Facebook</span>
                   </button>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    name="rememberMe"
-                    checked={formData.rememberMe}
-                    onChange={handleChange}
-                    className="w-4 h-4 text-[#D4AF37] bg-[#ECE8E3]/10 border-[#ECE8E3]/20 rounded focus:ring-[#D4AF37] focus:ring-2"
-                  />
-                  <span className="ml-2 text-sm text-[#ECE8E3]/70">Remember me</span>
-                </label>
-                <Link to="/forgot-password" className="text-sm text-[#D4AF37] hover:text-[#FFD777] transition-colors">
-                  Forgot password?
-                </Link>
+              {/* Terms */}
+              <div className="mt-8 text-center text-xs text-[#ECE8E3]/50">
+                By signing in, you agree to our{' '}
+                <Link to="/terms" className="text-[#D4AF37] hover:text-[#FFD777]">Terms</Link> and{' '}
+                <Link to="/privacy" className="text-[#D4AF37] hover:text-[#FFD777]">Privacy Policy</Link>.
               </div>
+            </div>
+          </FadeInUp>
 
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center transform"
-              >
-                Sign In
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
-            </form>
-
-            <div className="mt-6 text-center">
-              <p className="text-[#ECE8E3]/70">
-                Don't have an account?{' '}
-                <Link to="/register" className="text-[#D4AF37] hover:text-[#FFD777] transition-colors font-medium">
+          <FadeInUp delay={200}>
+            <div className="mt-6 text-center text-sm">
+              <p>
+                Don’t have an account?{' '}
+                <Link to="/register" className="text-[#D4AF37] hover:text-[#FFD777] font-medium">
                   Sign up
                 </Link>
               </p>
             </div>
-
-            <div className="mt-8 pt-6 border-t border-[#ECE8E3]/10">
-              <div className="text-center mb-4">
-                <span className="text-[#ECE8E3]/50 text-sm">Or continue with</span>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <button className="flex items-center justify-center px-4 py-2 bg-[#ECE8E3]/5 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/10 transition-all duration-200">
-                  <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" className="w-5 h-5 mr-2" />
-                  <span className="text-sm">Google</span>
-                </button>
-                <button className="flex items-center justify-center px-4 py-2 bg-[#ECE8E3]/5 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/10 transition-all duration-200">
-                  <div className="w-5 h-5 bg-blue-600 rounded mr-2 flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">f</span>
-                  </div>
-                  <span className="text-sm">Facebook</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </FadeInUp>
-
-        <FadeInUp delay={200}>
-          <div className="mt-8 text-center text-sm text-[#ECE8E3]/60">
-            <p>
-              By signing in, you agree to our{' '}
-              <Link to="/terms" className="text-[#D4AF37] hover:text-[#FFD777] transition-colors">
-                Terms of Service
-              </Link>{' '}
-              and{' '}
-              <Link to="/privacy" className="text-[#D4AF37] hover:text-[#FFD777] transition-colors">
-                Privacy Policy
-              </Link>
-            </p>
-          </div>
-        </FadeInUp>
+          </FadeInUp>
+        </div>
       </div>
     </div>
   );
