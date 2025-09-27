@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Award, Menu, X } from 'lucide-react';
+import { Award, Menu, X, Mail, MapPin, Phone } from 'lucide-react';
+import SmoothScroll from './SmoothScroll';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,22 +25,28 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-[#08070A] text-[#ECE8E3] font-['Inter'] antialiased">
+      <SmoothScroll />
+      
       {/* Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrollY > 50 ? 'bg-[#08070A]/95 backdrop-blur-lg border-b border-[#ECE8E3]/10' : 'bg-transparent'
       }`}>
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#FFD777] rounded-lg flex items-center justify-center">
-              <Award className="w-5 h-5 text-[#08070A]" />
-            </div>
-            <span className="text-xl font-['Playfair_Display'] font-bold">Gallaa</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/dist/assets/Gallalogo.png" 
+              alt="Gallaa Logo" 
+              className="h-8 w-auto"
+            />
+            <span className="text-xl font-['Playfair_Display'] font-bold bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+              Gallaa
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               to="/marketplace" 
-              className={`hover:text-[#D4AF37] transition-colors duration-300 ${
+              className={`hover:text-[#D4AF37] transition-colors duration-200 ${
                 isActive('/marketplace') ? 'text-[#D4AF37]' : ''
               }`}
             >
@@ -47,7 +54,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Link>
             <Link 
               to="/credit" 
-              className={`hover:text-[#D4AF37] transition-colors duration-300 ${
+              className={`hover:text-[#D4AF37] transition-colors duration-200 ${
                 isActive('/credit') ? 'text-[#D4AF37]' : ''
               }`}
             >
@@ -55,7 +62,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Link>
             <Link 
               to="/pricing" 
-              className={`hover:text-[#D4AF37] transition-colors duration-300 ${
+              className={`hover:text-[#D4AF37] transition-colors duration-200 ${
                 isActive('/pricing') ? 'text-[#D4AF37]' : ''
               }`}
             >
@@ -63,7 +70,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Link>
             <Link 
               to="/about" 
-              className={`hover:text-[#D4AF37] transition-colors duration-300 ${
+              className={`hover:text-[#D4AF37] transition-colors duration-200 ${
                 isActive('/about') ? 'text-[#D4AF37]' : ''
               }`}
             >
@@ -72,10 +79,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="px-4 py-2 text-[#ECE8E3] hover:text-[#D4AF37] transition-colors">
+            <Link to="/login" className="px-4 py-2 text-[#ECE8E3] hover:text-[#D4AF37] transition-colors duration-200">
               Sign In
             </Link>
-            <Link to="/register" className="px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-medium rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-300">
+            <Link to="/register" className="px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-xl hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-200 transform hover:-translate-y-0.5">
               Get Started
             </Link>
           </div>
@@ -100,7 +107,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <Link to="/login" className="block w-full text-left py-2 hover:text-[#D4AF37] transition-colors">
                   Sign In
                 </Link>
-                <Link to="/register" className="block w-full px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-medium rounded-lg text-center">
+                <Link to="/register" className="block w-full px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-xl text-center">
                   Get Started
                 </Link>
               </div>
@@ -119,39 +126,50 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="col-span-1">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#FFD777] rounded-lg flex items-center justify-center">
-                  <Award className="w-5 h-5 text-[#08070A]" />
-                </div>
-                <span className="text-xl font-['Playfair_Display'] font-bold">Gallaa</span>
+              <div className="flex items-center space-x-3 mb-4">
+                <img 
+                  src="/dist/assets/Gallalogo.png" 
+                  alt="Gallaa Logo" 
+                  className="h-8 w-auto"
+                />
+                <span className="text-xl font-['Playfair_Display'] font-bold bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+                  Gallaa
+                </span>
               </div>
-              <p className="text-[#ECE8E3]/70 mb-6">
-                India's premier luxury B2B marketplace, connecting manufacturers and retailers with smart credit solutions.
+              <p className="text-[#ECE8E3]/70 mb-6 leading-relaxed">
+                Gallaa B2B multivendor marketplace perfected for manufacturers, wholesalers, and retailers. 
+                Revolutionizing commerce with credit-as-inventory solutions.
               </p>
+              <div className="flex items-center space-x-2 text-[#ECE8E3]/70 mb-2">
+                <Mail className="w-4 h-4 text-[#D4AF37]" />
+                <a href="mailto:gallaafutures@gmail.com" className="hover:text-[#D4AF37] transition-colors">
+                  gallaafutures@gmail.com
+                </a>
+              </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Platform</h4>
+              <h4 className="font-semibold mb-4 text-[#D4AF37]">Platform</h4>
               <ul className="space-y-2 text-[#ECE8E3]/70">
                 <li><Link to="/marketplace" className="hover:text-[#D4AF37] transition-colors">Marketplace</Link></li>
                 <li><Link to="/credit" className="hover:text-[#D4AF37] transition-colors">Credit Solutions</Link></li>
-                <li><Link to="/pricing" className="hover:text-[#D4AF37] transition-colors">Pricing</Link></li>
+                <li><Link to="/pricing" className="hover:text-[#D4AF37] transition-colors">Subscriptions</Link></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">API</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4 text-[#D4AF37]">Quick Links</h4>
               <ul className="space-y-2 text-[#ECE8E3]/70">
+                <li><Link to="/register" className="hover:text-[#D4AF37] transition-colors">Retailer Registration</Link></li>
+                <li><Link to="/register" className="hover:text-[#D4AF37] transition-colors">Wholesaler Registration</Link></li>
+                <li><Link to="/" className="hover:text-[#D4AF37] transition-colors">Home</Link></li>
                 <li><Link to="/about" className="hover:text-[#D4AF37] transition-colors">About Us</Link></li>
-                <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Press</a></li>
-                <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Partners</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
+              <h4 className="font-semibold mb-4 text-[#D4AF37]">Support</h4>
               <ul className="space-y-2 text-[#ECE8E3]/70">
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Help Center</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Contact Us</a></li>
@@ -163,7 +181,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
           <div className="border-t border-[#ECE8E3]/10 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-[#ECE8E3]/60 mb-4 md:mb-0">
-              © 2025 Gallaa. All rights reserved. | CIN: U74999DL2024PTC123456
+              © 2025 Gallaa – All Rights Reserved | CIN: U74999DL2024PTC123456
             </p>
             <div className="flex items-center space-x-6 text-sm text-[#ECE8E3]/60">
               <span>Made in India 🇮🇳</span>

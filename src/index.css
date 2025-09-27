@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Background gradient utilities */
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
 /* Fix select dropdown styling */
 select {
   color: #ECE8E3 !important;
@@ -18,7 +28,7 @@ select option {
 input:focus, select:focus, textarea:focus {
   outline: none !important;
   border-color: #D4AF37 !important;
-  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2) !important;
 }
 
 /* Custom slider styles */
@@ -30,6 +40,12 @@ input:focus, select:focus, textarea:focus {
   background: linear-gradient(135deg, #D4AF37, #FFD777);
   cursor: pointer;
   border: 2px solid #08070A;
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 .slider::-moz-range-thumb {
@@ -39,6 +55,12 @@ input:focus, select:focus, textarea:focus {
   background: linear-gradient(135deg, #D4AF37, #FFD777);
   cursor: pointer;
   border: 2px solid #08070A;
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 /* Custom scrollbar */
@@ -57,4 +79,40 @@ input:focus, select:focus, textarea:focus {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #FFD777, #D4AF37);
+}
+
+/* Button hover animations */
+.btn-hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Parallax elements */
+.parallax {
+  will-change: transform;
+}
+
+/* Improved focus states */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* Loading animations */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
 }
