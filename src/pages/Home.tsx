@@ -28,7 +28,7 @@ const Home: React.FC = () => {
             {/* Logo */}
             <div className="mb-8 flex justify-center">
               <img 
-                src="/dist/assets/Gallalogo.png" 
+                src="https://i.ibb.co/LzTVQ9cj/Gallalogo.png" 
                 alt="Gallaa Logo" 
                 className="h-16 w-auto"
               />
