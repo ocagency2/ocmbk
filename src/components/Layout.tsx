@@ -34,7 +34,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/dist/assets/Gallalogo.png" 
+              src="https://i.ibb.co/LzTVQ9cj/Gallalogo.png" 
               alt="Gallaa Logo" 
               className="h-8 w-auto"
             />
