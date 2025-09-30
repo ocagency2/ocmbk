@@ -34,16 +34,16 @@ interface FadeInUpProps {
 const FadeInUp: React.FC<FadeInUpProps> = ({ children, delay = 0, className = "" }) => {
   const [ref, isIntersecting] = useIntersectionObserver({
     threshold: 0.1,
-    rootMargin: '50px'
+    rootMargin: '30px'
   });
 
   return (
     <div
       ref={ref}
-      className={`transform transition-all duration-300 ease-out ${
+      className={`transform transition-all duration-200 ease-out ${
         isIntersecting 
           ? 'translate-y-0 opacity-100' 
-          : 'translate-y-4 opacity-0'
+          : 'translate-y-2 opacity-0'
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
