@@ -1,64 +1,68 @@
 import React, { useState } from 'react';
-import { Search, Filter, Grid, List, Star, Heart, ShoppingCart, Eye } from 'lucide-react';
+import { Search, Filter, Grid2x2 as Grid, List, Star, Heart, ShoppingCart, Eye } from 'lucide-react'pingCart, Eye } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
 
 const Marketplace: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [
     { id: 'all', name: 'All Categories', count: 1247 },
-    { id: 'jewelry', name: 'Jewelry', count: 342 },
-    { id: 'watches', name: 'Watches', count: 189 },
-    { id: 'fashion', name: 'Fashion', count: 256 },
-    { id: 'electronics', name: 'Electronics', count: 178 },
-    { id: 'home-decor', name: 'Home & Decor', count: 234 },
-    { id: 'automobiles', name: 'Automobiles', count: 48 }
+    { id: 'clothing', name: 'Luxury Clothing', count: 456 },
+    { id: 'accessories', name: 'Fashion Accessories', count: 342 },
+    { id: 'footwear', name: 'Premium Footwear', count: 189 },
+    { id: 'bags', name: 'Designer Bags', count: 234 },
+    { id: 'jewelry', name: 'Fine Jewelry', count: 178 },
+    { id: 'watches', name: 'Luxury Watches', count: 148 }
   ];
 
   const products = [
     {
       id: 1,
-      name: "Premium Gold Necklace Set",
-      manufacturer: "Rajesh Jewellers",
-      price: 125000,
-      originalPrice: 150000,
-      rating: 4.8,
-      reviews: 24,
-      image: "https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=400",
-      category: "jewelry",
-      inStock: true,
-      minOrder: 5,
-      location: "Mumbai, Maharashtra"
-    },
-    {
-      id: 2,
-      name: "Luxury Swiss Watch Collection",
-      manufacturer: "TimeKeepers Ltd",
-      price: 85000,
-      originalPrice: 95000,
-      rating: 4.9,
-      reviews: 18,
-      image: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=400",
-      category: "watches",
-      inStock: true,
-      minOrder: 2,
-      location: "Delhi, NCR"
-    },
-    {
-      id: 3,
       name: "Designer Silk Saree Collection",
       manufacturer: "Heritage Textiles",
       price: 15000,
       originalPrice: 18000,
-      rating: 4.7,
+      rating: 4.8,
       reviews: 31,
       image: "https://images.pexels.com/photos/8839887/pexels-photo-8839887.jpeg?auto=compress&cs=tinysrgb&w=400",
-      category: "fashion",
+      category: "clothing",
       inStock: true,
       minOrder: 10,
       location: "Bangalore, Karnataka"
+    },
+    {
+      id: 2,
+      name: "Premium Cotton T-Shirt Bundle",
+      manufacturer: "Urban Threads",
+      price: 2500,
+      originalPrice: 3000,
+      rating: 4.7,
+      reviews: 89,
+      image: "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=400",
+      category: "clothing",
+      inStock: true,
+      minOrder: 50,
+      location: "Mumbai, Maharashtra"
+    },
+    {
+      id: 3,
+      name: "Designer Denim Jeans Collection",
+      manufacturer: "Denim Craft Co",
+      price: 4500,
+      originalPrice: 5500,
+      rating: 4.6,
+      reviews: 67,
+      image: "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=400",
+      category: "clothing",
+      inStock: true,
+      minOrder: 25,
+      location: "Delhi, NCR"
     },
     {
       id: 4,
@@ -69,38 +73,38 @@ const Marketplace: React.FC = () => {
       rating: 4.6,
       reviews: 42,
       image: "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=400",
-      category: "fashion",
-      inStock: false,
+      category: "bags",
+      inStock: true,
       minOrder: 20,
       location: "Chennai, Tamil Nadu"
     },
     {
       id: 5,
-      name: "Crystal Chandelier Set",
-      manufacturer: "Illumina Decor",
-      price: 45000,
-      originalPrice: 52000,
+      name: "Luxury Formal Shirts",
+      manufacturer: "Elite Formals",
+      price: 3500,
+      originalPrice: 4200,
       rating: 4.8,
-      reviews: 15,
-      image: "https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=400",
-      category: "home-decor",
+      reviews: 54,
+      image: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=400",
+      category: "clothing",
       inStock: true,
-      minOrder: 3,
-      location: "Jaipur, Rajasthan"
+      minOrder: 30,
+      location: "Pune, Maharashtra"
     },
     {
       id: 6,
-      name: "Premium Audio System",
-      manufacturer: "SoundTech Pro",
-      price: 35000,
-      originalPrice: 40000,
-      rating: 4.7,
-      reviews: 28,
-      image: "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=400",
-      category: "electronics",
+      name: "Designer Ethnic Wear",
+      manufacturer: "Royal Traditions",
+      price: 12000,
+      originalPrice: 15000,
+      rating: 4.9,
+      reviews: 38,
+      image: "https://images.pexels.com/photos/8839888/pexels-photo-8839888.jpeg?auto=compress&cs=tinysrgb&w=400",
+      category: "clothing",
       inStock: true,
       minOrder: 5,
-      location: "Pune, Maharashtra"
+      location: "Jaipur, Rajasthan"
     }
   ];
 
@@ -117,10 +121,10 @@ const Marketplace: React.FC = () => {
         {/* Header */}
         <FadeInUp className="mb-8">
           <h1 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold mb-4">
-            Luxury Marketplace
+            Premium Fashion Marketplace
           </h1>
           <p className="text-xl text-[#ECE8E3]/80 max-w-3xl">
-            Discover premium products from verified manufacturers across India. Access exclusive wholesale pricing and credit-backed purchasing.
+            Discover premium clothing and luxury fashion brands from verified manufacturers across India. Access exclusive wholesale pricing and credit-backed purchasing.
           </p>
         </FadeInUp>
 
@@ -134,26 +138,26 @@ const Marketplace: React.FC = () => {
                 placeholder="Search products, manufacturers..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none text-[#ECE8E3] placeholder-[#ECE8E3]/50"
+                className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
               />
             </div>
             
             <div className="flex items-center gap-4">
-              <button className="flex items-center px-4 py-2 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37]/50 transition-colors">
+              <button className="flex items-center px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/5 transition-all duration-200">
                 <Filter className="w-4 h-4 mr-2" />
                 Filters
               </button>
               
-              <div className="flex border border-[#ECE8E3]/20 rounded-lg overflow-hidden">
+              <div className="flex border-2 border-[#ECE8E3]/30 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 ${viewMode === 'grid' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-colors`}
+                  className={`p-2 ${viewMode === 'grid' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-all duration-200`}
                 >
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 ${viewMode === 'list' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-colors`}
+                  className={`p-2 ${viewMode === 'list' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-all duration-200`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -197,11 +201,11 @@ const Marketplace: React.FC = () => {
                   Showing {filteredProducts.length} of {products.length} products
                 </p>
                 <select className="px-4 py-2 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none">
-                  <option className="bg-[#08070A] text-[#ECE8E3]">Sort by: Featured</option>
-                  <option className="bg-[#08070A] text-[#ECE8E3]">Price: Low to High</option>
-                  <option className="bg-[#08070A] text-[#ECE8E3]">Price: High to Low</option>
-                  <option className="bg-[#08070A] text-[#ECE8E3]">Rating</option>
-                  <option className="bg-[#08070A] text-[#ECE8E3]">Newest</option>
+                  <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Sort by: Featured</option>
+                  <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Price: Low to High</option>
+                  <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Price: High to Low</option>
+                  <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Rating</option>
+                  <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Newest</option>
                 </select>
               </div>
             </FadeInUp>
@@ -270,12 +274,12 @@ const Marketplace: React.FC = () => {
                       <div className="flex gap-2">
                         <button 
                           disabled={!product.inStock}
-                          className="flex-1 px-4 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-medium rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                          className="reward-button flex-1 px-4 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-medium rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center hover:-translate-y-1"
                         >
                           <ShoppingCart className="w-4 h-4 mr-2" />
                           Add to Cart
                         </button>
-                        <button className="px-4 py-2 border border-[#ECE8E3]/20 hover:border-[#D4AF37] rounded-lg transition-colors">
+                        <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 rounded-lg transition-all duration-200">
                           Quote
                         </button>
                       </div>
@@ -288,7 +292,7 @@ const Marketplace: React.FC = () => {
             {/* Pagination */}
             <FadeInUp delay={600} className="mt-12 flex justify-center">
               <div className="flex items-center gap-2">
-                <button className="px-4 py-2 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37] transition-colors">
+                <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 transition-all duration-200">
                   Previous
                 </button>
                 {[1, 2, 3, 4, 5].map((page) => (
@@ -297,13 +301,13 @@ const Marketplace: React.FC = () => {
                     className={`px-4 py-2 rounded-lg transition-colors ${
                       page === 1
                         ? 'bg-[#D4AF37] text-[#08070A]'
-                        : 'border border-[#ECE8E3]/20 hover:border-[#D4AF37]'
+                        : 'border-2 border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5'
                     }`}
                   >
                     {page}
                   </button>
                 ))}
-                <button className="px-4 py-2 border border-[#ECE8E3]/20 rounded-lg hover:border-[#D4AF37] transition-colors">
+                <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 transition-all duration-200">
                   Next
                 </button>
               </div>
