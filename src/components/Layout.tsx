@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Award, Menu, X, Mail, MapPin, Phone } from 'lucide-react';
+import { Award, Menu, X, Mail } from 'lucide-react';
 import SmoothScroll from './SmoothScroll';
+import OcagencyBranding from './OcagencyBranding';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +35,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="https://i.ibb.co/LzTVQ9cj/Gallalogo.png" 
+              src="https://i.ibb.co/LzTVQ9cj/Gallalogo.png"
               alt="Gallaa Logo" 
               className="h-8 w-auto"
             />
@@ -82,7 +83,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Link to="/login" className="px-4 py-2 text-[#ECE8E3] hover:text-[#D4AF37] transition-colors duration-200">
               Sign In
             </Link>
-            <Link to="/register" className="px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-xl hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-200 transform hover:-translate-y-0.5">
+            <Link to="/register" className="reward-button px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-xl hover:shadow-lg hover:shadow-[#D4AF37]/25 transition-all duration-200 transform hover:-translate-y-1">
               Get Started
             </Link>
           </div>
@@ -107,7 +108,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <Link to="/login" className="block w-full text-left py-2 hover:text-[#D4AF37] transition-colors">
                   Sign In
                 </Link>
-                <Link to="/register" className="block w-full px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-xl text-center">
+                <Link to="/register" className="reward-button block w-full px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-xl text-center">
                   Get Started
                 </Link>
               </div>
@@ -124,11 +125,16 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Footer */}
       <footer className="bg-[#ECE8E3]/5 border-t border-[#ECE8E3]/10 py-16 px-6">
         <div className="max-w-7xl mx-auto">
+          {/* Ocagency Branding */}
+          <div className="flex justify-center mb-8">
+            <OcagencyBranding />
+          </div>
+
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="col-span-1">
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="/dist/assets/Gallalogo.png" 
+                  src="https://i.ibb.co/LzTVQ9cj/Gallalogo.png"
                   alt="Gallaa Logo" 
                   className="h-8 w-auto"
                 />
@@ -162,9 +168,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <h4 className="font-semibold mb-4 text-[#D4AF37]">Quick Links</h4>
               <ul className="space-y-2 text-[#ECE8E3]/70">
                 <li><Link to="/register" className="hover:text-[#D4AF37] transition-colors">Retailer Registration</Link></li>
-                <li><Link to="/register" className="hover:text-[#D4AF37] transition-colors">Wholesaler Registration</Link></li>
+                <li><Link to="/register" className="hover:text-[#D4AF37] transition-colors">Manufacturer Registration</Link></li>
                 <li><Link to="/" className="hover:text-[#D4AF37] transition-colors">Home</Link></li>
                 <li><Link to="/about" className="hover:text-[#D4AF37] transition-colors">About Us</Link></li>
+                <li><Link to="/pricing" className="hover:text-[#D4AF37] transition-colors">Subscriptions</Link></li>
               </ul>
             </div>
 
@@ -180,9 +187,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </div>
 
           <div className="border-t border-[#ECE8E3]/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-[#ECE8E3]/60 mb-4 md:mb-0">
-              © 2025 Gallaa – All Rights Reserved | CIN: U74999DL2024PTC123456
-            </p>
+            <div className="text-[#ECE8E3]/60 mb-4 md:mb-0">
+              <p>© 2025 Gallaa – All Rights Reserved</p>
+              <p className="text-sm mt-1">CIN: U74999DL2024PTC123456</p>
+            </div>
             <div className="flex items-center space-x-6 text-sm text-[#ECE8E3]/60">
               <span>Made in India 🇮🇳</span>
               <span>•</span>

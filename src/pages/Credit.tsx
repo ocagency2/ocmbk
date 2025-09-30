@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { 
   Package, 
   TrendingUp, 
@@ -14,6 +15,10 @@ import FadeInUp from '../components/FadeInUp';
 import AnimatedInfographic from '../components/AnimatedInfographic';
 
 const Credit: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [stockQuantity, setStockQuantity] = useState(10000);
   const [stockValuePerItem, setStockValuePerItem] = useState(500);
   const [businessType, setBusinessType] = useState('retailer');
@@ -221,6 +226,7 @@ const Credit: React.FC = () => {
                 </div>
 
                 <button className="w-full mt-8 px-6 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-lg hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1">
+                <button className="reward-button w-full mt-8 px-6 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-lg hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1 hover:scale-105">
                   Apply for Credit
                   <ArrowRight className="inline-block w-5 h-5 ml-2" />
                 </button>
@@ -298,11 +304,11 @@ const Credit: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1">
+              <button className="reward-button px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1 hover:scale-105">
                 Apply for Credit Now
                 <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
-              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold">
+              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold hover:-translate-y-1">
                 Schedule Demo
               </button>
             </div>
