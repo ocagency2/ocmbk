@@ -8,67 +8,38 @@ import {
   Heart,
   Target,
   Lightbulb,
-  CheckCircle,
-  Factory,
-  Store,
-  CreditCard,
-  Zap
+  CheckCircle
 } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
 
 const About: React.FC = () => {
   const stats = [
-    { number: '500+', label: 'Verified Manufacturers', icon: Factory },
-    { number: '2,000+', label: 'Active Retailers', icon: Store },
-    { number: '₹50Cr+', label: 'Transaction Volume', icon: CreditCard },
+    { number: '500+', label: 'Verified Manufacturers', icon: Users },
+    { number: '2,000+', label: 'Active Retailers', icon: TrendingUp },
+    { number: '₹50Cr+', label: 'Transaction Volume', icon: Award },
     { number: '25+', label: 'Cities Covered', icon: Globe }
   ];
 
-  const challenges = [
+  const values = [
     {
-      category: "Manufacturing Hurdles",
-      icon: Factory,
-      problems: [
-        "Raw material price volatility",
-        "Complex supply chain management", 
-        "Seasonal demand fluctuations",
-        "Credit crunch affecting production",
-        "Delayed payments from retailers"
-      ]
+      icon: Shield,
+      title: 'Trust & Transparency',
+      description: 'We believe in building lasting relationships through complete transparency in all our dealings and maintaining the highest standards of trust.'
     },
     {
-      category: "Retail Obstacles", 
-      icon: Store,
-      problems: [
-        "Limited local demand patterns",
-        "Intense price wars with competitors",
-        "E-commerce platform pressure",
-        "Cash flow and payment issues",
-        "Inventory management challenges"
-      ]
-    }
-  ];
-
-  const solutions = [
-    {
-      title: "Real-Time Payment Settlement",
-      description: "Daily settlement model that restores immediate cash flow for all parties",
-      icon: Zap
+      icon: Lightbulb,
+      title: 'Innovation First',
+      description: 'We continuously innovate to solve real problems in the luxury B2B space, leveraging cutting-edge technology to create better solutions.'
     },
     {
-      title: "Unified Platform Ecosystem",
-      description: "Single platform connecting manufacturers, retailers, and financial services",
-      icon: Globe
+      icon: Heart,
+      title: 'Customer Success',
+      description: 'Our success is measured by the success of our customers. We are committed to helping businesses grow and thrive on our platform.'
     },
     {
-      title: "Complete Transparency",
-      description: "Full visibility into transactions, inventory, and payment status for all stakeholders",
-      icon: Shield
-    },
-    {
-      title: "Credit-as-Inventory Innovation",
-      description: "Revolutionary model where retailers receive goods instead of cash loans",
-      icon: Lightbulb
+      icon: Target,
+      title: 'Excellence',
+      description: 'We strive for excellence in everything we do, from product quality to customer service, setting new standards in the industry.'
     }
   ];
 
@@ -99,20 +70,49 @@ const About: React.FC = () => {
     }
   ];
 
+  const milestones = [
+    {
+      year: '2023',
+      title: 'Company Founded',
+      description: 'Gallaa was founded with a vision to revolutionize luxury B2B trade in India.'
+    },
+    {
+      year: '2023',
+      title: 'First 100 Partners',
+      description: 'Onboarded our first 100 verified manufacturers and retailers across major Indian cities.'
+    },
+    {
+      year: '2024',
+      title: 'Credit Launch',
+      description: 'Launched our AI-powered credit assessment system, enabling instant credit approvals.'
+    },
+    {
+      year: '2024',
+      title: 'Series A Funding',
+      description: 'Raised ₹25 Cr in Series A funding to accelerate growth and expand operations.'
+    },
+    {
+      year: '2024',
+      title: 'Pan-India Expansion',
+      description: 'Expanded operations to 25+ cities with over 500 verified manufacturers.'
+    },
+    {
+      year: '2025',
+      title: 'AI Innovation',
+      description: 'Launched advanced AI features for demand forecasting and personalized recommendations.'
+    }
+  ];
+
   return (
-    <div className="px-6 py-8 relative">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-radial from-[#D4AF37]/3 via-transparent to-transparent pointer-events-none"></div>
-      
-      <div className="max-w-7xl mx-auto relative">
+    <div className="px-6 py-8">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <FadeInUp className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-['Playfair_Display'] font-bold mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold mb-6">
             About Gallaa
           </h1>
-          <p className="text-xl text-[#ECE8E3]/80 max-w-4xl mx-auto leading-relaxed">
-            We're revolutionizing India's B2B commerce ecosystem by solving the fundamental challenges 
-            that have plagued manufacturers and retailers for decades.
+          <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
+            We're on a mission to transform India's luxury B2B trade ecosystem by connecting verified manufacturers with retailers through smart credit solutions and cutting-edge technology.
           </p>
         </FadeInUp>
 
@@ -120,8 +120,8 @@ const About: React.FC = () => {
         <FadeInUp delay={100} className="mb-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-[#D4AF37]/30 group-hover:to-[#FFD777]/30 transition-all duration-300">
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-[#D4AF37]" />
                 </div>
                 <div className="text-3xl font-bold text-[#D4AF37] mb-2">{stat.number}</div>
@@ -131,122 +131,80 @@ const About: React.FC = () => {
           </div>
         </FadeInUp>
 
-        {/* Decoding the Business of Credit */}
+        {/* Mission & Vision */}
         <FadeInUp delay={200} className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-              Decoding the Business of Credit
-            </h2>
-            <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
-              Understanding the core challenges that drive our innovative solutions
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {challenges.map((challenge, index) => (
-              <FadeInUp key={index} delay={300 + index * 100}>
-                <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-xl flex items-center justify-center mr-4">
-                      <challenge.icon className="w-6 h-6 text-[#D4AF37]" />
-                    </div>
-                    <h3 className="text-xl font-['Playfair_Display'] font-semibold">{challenge.category}</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {challenge.problems.map((problem, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <div className="w-2 h-2 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
-                        <span className="text-[#ECE8E3]/70">{problem}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeInUp>
-            ))}
-          </div>
-        </FadeInUp>
-
-        {/* Gallaa's Solution */}
-        <FadeInUp delay={400} className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-              Gallaa's Revolutionary Solution
-            </h2>
-            <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
-              How we're transforming B2B commerce with innovative technology and financial models
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {solutions.map((solution, index) => (
-              <FadeInUp key={index} delay={500 + index * 100}>
-                <div className="group p-8 bg-gradient-to-br from-[#D4AF37]/5 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-2xl hover:from-[#D4AF37]/10 hover:to-[#FFD777]/10 hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-[#D4AF37]/30 group-hover:to-[#FFD777]/30 transition-all duration-300">
-                    <solution.icon className="w-8 h-8 text-[#D4AF37]" />
-                  </div>
-                  <h3 className="text-xl font-['Playfair_Display'] font-semibold mb-4 group-hover:text-[#D4AF37] transition-colors duration-300">{solution.title}</h3>
-                  <p className="text-[#ECE8E3]/70 leading-relaxed">{solution.description}</p>
-                </div>
-              </FadeInUp>
-            ))}
-          </div>
-        </FadeInUp>
-
-        {/* Game Changer Section */}
-        <FadeInUp delay={600} className="mb-20">
-          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-3xl p-12 text-center backdrop-blur-sm">
-            <Zap className="w-16 h-16 text-[#D4AF37] mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-              The GAME CHANGER: Daily Settlement Model
-            </h2>
-            <p className="text-xl text-[#ECE8E3]/80 max-w-4xl mx-auto leading-relaxed mb-8">
-              Our revolutionary daily settlement model restores immediate cash flow for all stakeholders. 
-              Unlike traditional 30-90 day payment cycles, Gallaa ensures real-time settlements, 
-              eliminating cash flow bottlenecks that have crippled B2B commerce for decades.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <div className="bg-[#ECE8E3]/5 rounded-xl p-6">
-                <CheckCircle className="w-8 h-8 text-[#D4AF37] mb-4" />
-                <h3 className="font-semibold mb-2">Manufacturers</h3>
-                <p className="text-[#ECE8E3]/70 text-sm">Get paid within 24 hours of product delivery</p>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="w-8 h-8 text-[#D4AF37]" />
               </div>
-              <div className="bg-[#ECE8E3]/5 rounded-xl p-6">
-                <CheckCircle className="w-8 h-8 text-[#D4AF37] mb-4" />
-                <h3 className="font-semibold mb-2">Retailers</h3>
-                <p className="text-[#ECE8E3]/70 text-sm">Access inventory without upfront capital investment</p>
+              <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-4">Our Mission</h2>
+              <p className="text-[#ECE8E3]/80 leading-relaxed">
+                To democratize access to luxury trade by creating India's most trusted B2B marketplace that empowers manufacturers and retailers with smart credit solutions, transparent pricing, and seamless transactions.
+              </p>
+            </div>
+
+            <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6">
+                <Lightbulb className="w-8 h-8 text-[#D4AF37]" />
               </div>
-              <div className="bg-[#ECE8E3]/5 rounded-xl p-6">
-                <CheckCircle className="w-8 h-8 text-[#D4AF37] mb-4" />
-                <h3 className="font-semibold mb-2">Platform</h3>
-                <p className="text-[#ECE8E3]/70 text-sm">Transparent, automated settlement process</p>
-              </div>
+              <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-4">Our Vision</h2>
+              <p className="text-[#ECE8E3]/80 leading-relaxed">
+                To become the backbone of India's luxury economy by building the most comprehensive ecosystem that connects every stakeholder in the luxury value chain through technology and innovation.
+              </p>
             </div>
           </div>
         </FadeInUp>
 
-        {/* Team */}
-        <FadeInUp delay={700} className="mb-20">
+        {/* Values */}
+        <FadeInUp delay={300} className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-              Meet Our Leadership Team
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+              Our Values
             </h2>
             <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
-              Experienced leaders from luxury retail, fintech, and technology sectors driving innovation in B2B commerce
+              The principles that guide everything we do and shape our company culture.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {values.map((value, index) => (
+              <FadeInUp key={index} delay={400 + index * 100}>
+                <div className="group p-8 bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-[#D4AF37]/30 group-hover:to-[#FFD777]/30 transition-all duration-300">
+                    <value.icon className="w-8 h-8 text-[#D4AF37]" />
+                  </div>
+                  <h3 className="text-xl font-['Playfair_Display'] font-semibold mb-4">{value.title}</h3>
+                  <p className="text-[#ECE8E3]/70 leading-relaxed">{value.description}</p>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+        </FadeInUp>
+
+        {/* Team */}
+        <FadeInUp delay={500} className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
+              Experienced leaders from luxury retail, fintech, and technology sectors driving innovation in B2B commerce.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <FadeInUp key={index} delay={800 + index * 100}>
-                <div className="group text-center bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-6 hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/10">
+              <FadeInUp key={index} delay={600 + index * 100}>
+                <div className="group text-center">
                   <div className="relative mb-6">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-[#ECE8E3]/10 group-hover:border-[#D4AF37]/30 transition-colors duration-300"
+                      className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-[#ECE8E3]/10 group-hover:border-[#D4AF37]/30 transition-colors duration-300"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-[#D4AF37] transition-colors duration-300">{member.name}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                   <p className="text-[#D4AF37] font-medium mb-3">{member.role}</p>
                   <p className="text-[#ECE8E3]/70 text-sm leading-relaxed">{member.bio}</p>
                 </div>
@@ -255,42 +213,51 @@ const About: React.FC = () => {
           </div>
         </FadeInUp>
 
-        {/* Mission & Vision */}
-        <FadeInUp delay={900} className="mb-20">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-[#D4AF37]" />
-              </div>
-              <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">Our Mission</h2>
-              <p className="text-[#ECE8E3]/80 leading-relaxed">
-                To democratize access to B2B commerce by creating India's most trusted marketplace that empowers 
-                manufacturers and retailers with innovative credit solutions, transparent pricing, and seamless transactions.
-              </p>
-            </div>
+        {/* Timeline */}
+        <FadeInUp delay={700} className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+              Our Journey
+            </h2>
+            <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
+              From a vision to transform luxury B2B trade to becoming India's trusted marketplace platform.
+            </p>
+          </div>
 
-            <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6">
-                <Lightbulb className="w-8 h-8 text-[#D4AF37]" />
-              </div>
-              <h2 className="text-2xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">Our Vision</h2>
-              <p className="text-[#ECE8E3]/80 leading-relaxed">
-                To become the backbone of India's economy by building the most comprehensive B2B ecosystem that connects 
-                every stakeholder in the value chain through technology, innovation, and financial inclusion.
-              </p>
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-[#D4AF37] to-[#FFD777] hidden md:block"></div>
+            
+            <div className="space-y-12">
+              {milestones.map((milestone, index) => (
+                <FadeInUp key={index} delay={800 + index * 100}>
+                  <div className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8`}>
+                    <div className="flex-1">
+                      <div className={`p-6 bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                        <div className="text-[#D4AF37] font-bold text-lg mb-2">{milestone.year}</div>
+                        <h3 className="text-xl font-semibold mb-3">{milestone.title}</h3>
+                        <p className="text-[#ECE8E3]/70">{milestone.description}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="w-4 h-4 bg-gradient-to-br from-[#D4AF37] to-[#FFD777] rounded-full flex-shrink-0 relative z-10"></div>
+                    
+                    <div className="flex-1 hidden md:block"></div>
+                  </div>
+                </FadeInUp>
+              ))}
             </div>
           </div>
         </FadeInUp>
 
         {/* Recognition */}
-        <FadeInUp delay={1000} className="mb-20">
+        <FadeInUp delay={900} className="mb-20">
           <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+              <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-4">
                 Recognition & Certifications
               </h2>
               <p className="text-xl text-[#ECE8E3]/80">
-                Trusted by industry leaders and certified by global standards
+                Trusted by industry leaders and certified by global standards.
               </p>
             </div>
 
@@ -323,21 +290,20 @@ const About: React.FC = () => {
         </FadeInUp>
 
         {/* CTA */}
-        <FadeInUp delay={1100} className="text-center">
-          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-3xl p-12 backdrop-blur-sm">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-              Join the Revolution
+        <FadeInUp delay={1000} className="text-center">
+          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-2xl p-12">
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6">
+              Join Our Mission
             </h2>
-            <p className="text-xl text-[#ECE8E3]/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Be part of India's B2B commerce transformation. Whether you're a manufacturer, retailer, 
-              or looking to join our team, we'd love to hear from you.
+            <p className="text-xl text-[#ECE8E3]/80 mb-8 max-w-2xl mx-auto">
+              Be part of India's luxury trade transformation. Whether you're a manufacturer, retailer, or looking to join our team, we'd love to hear from you.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1">
-                Get Started Today
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold text-lg rounded-lg hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-300">
+                Get Started
               </button>
-              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold">
+              <button className="px-8 py-4 border border-[#ECE8E3]/20 hover:border-[#D4AF37] rounded-lg transition-colors">
                 Contact Us
               </button>
             </div>

@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import { CheckCircle, Star, ArrowRight, CreditCard, Shield, Zap } from 'lucide-react';
+import React from 'react';
+import { CheckCircle, Star, ArrowRight } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
 
 const Pricing: React.FC = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
-
   const plans = [
     {
       name: "Starter",
-      monthlyPrice: 2999,
-      annualPrice: 28790, // 20% discount
-      period: isAnnual ? "/year" : "/month",
+      price: "₹2,999",
+      period: "/month",
       description: "Perfect for small retailers getting started",
       features: [
         "Credit limit up to ₹5L",
@@ -24,13 +21,12 @@ const Pricing: React.FC = () => {
       ],
       cta: "Start Free Trial",
       popular: false,
-      savings: isAnnual ? "Save ₹7,200 annually" : "Most affordable"
+      savings: "Save ₹6,000 annually"
     },
     {
       name: "Professional",
-      monthlyPrice: 7999,
-      annualPrice: 76790, // 20% discount
-      period: isAnnual ? "/year" : "/month",
+      price: "₹7,999",
+      period: "/month",
       description: "Ideal for growing retail businesses",
       features: [
         "Credit limit up to ₹25L",
@@ -48,12 +44,11 @@ const Pricing: React.FC = () => {
       ],
       cta: "Most Popular",
       popular: true,
-      savings: isAnnual ? "Save ₹19,200 annually" : "Best value"
+      savings: "Save ₹19,200 annually"
     },
     {
       name: "Enterprise",
-      monthlyPrice: null,
-      annualPrice: null,
+      price: "Custom",
       period: "",
       description: "For large retailers and manufacturers",
       features: [
@@ -126,47 +121,28 @@ const Pricing: React.FC = () => {
     }
   ];
 
-  const getPrice = (plan: typeof plans[0]) => {
-    if (!plan.monthlyPrice) return "Custom";
-    return isAnnual ? `₹${plan.annualPrice?.toLocaleString()}` : `₹${plan.monthlyPrice.toLocaleString()}`;
-  };
-
-  const handlePayment = (planName: string) => {
-    // Mock payment integration
-    alert(`Redirecting to payment for ${planName} plan...`);
-  };
-
   return (
-    <div className="px-6 py-8 relative">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-radial from-[#D4AF37]/3 via-transparent to-transparent pointer-events-none"></div>
-      
-      <div className="max-w-7xl mx-auto relative">
+    <div className="px-6 py-8">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <FadeInUp className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-['Playfair_Display'] font-bold mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold mb-6">
             Transparent Pricing for Every Business
           </h1>
-          <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
             Choose the perfect plan for your business needs. All plans include our core marketplace features with different credit and transaction limits.
           </p>
           
-          {/* Billing Toggle */}
           <div className="flex items-center justify-center mt-8 space-x-4">
-            <span className={`text-lg ${!isAnnual ? 'text-[#D4AF37] font-semibold' : 'text-[#ECE8E3]/70'}`}>
-              Monthly
-            </span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className="relative w-16 h-8 bg-[#ECE8E3]/20 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50"
-            >
-              <div className={`absolute top-1 left-1 w-6 h-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] rounded-full transition-transform duration-200 ${
-                isAnnual ? 'translate-x-8' : 'translate-x-0'
-              }`} />
-            </button>
-            <span className={`text-lg ${isAnnual ? 'text-[#D4AF37] font-semibold' : 'text-[#ECE8E3]/70'}`}>
-              Annual
-              <span className="ml-2 px-2 py-1 bg-[#D4AF37]/20 text-[#D4AF37] text-xs rounded-full">
+            <span className="text-[#ECE8E3]/70">Monthly</span>
+            <div className="relative">
+              <input type="checkbox" className="sr-only" />
+              <div className="w-12 h-6 bg-[#ECE8E3]/20 rounded-full cursor-pointer"></div>
+              <div className="absolute left-1 top-1 w-4 h-4 bg-[#D4AF37] rounded-full transition-transform"></div>
+            </div>
+            <span className="text-[#ECE8E3]/70">
+              Annual 
+              <span className="ml-2 px-2 py-1 bg-[#D4AF37]/20 text-[#D4AF37] text-xs rounded">
                 Save 20%
               </span>
             </span>
@@ -177,16 +153,16 @@ const Pricing: React.FC = () => {
         <FadeInUp delay={100} className="mb-20">
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
-              <div key={index} className={`relative p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-2 ${
+              <div key={index} className={`relative p-8 rounded-2xl border transition-all duration-300 hover:-translate-y-2 ${
                 plan.popular 
-                  ? 'border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/10 to-transparent scale-105 shadow-xl shadow-[#D4AF37]/20' 
-                  : 'border-[#ECE8E3]/20 bg-[#ECE8E3]/5 hover:border-[#D4AF37]/50 hover:shadow-xl hover:shadow-[#D4AF37]/10'
+                  ? 'border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/10 to-transparent scale-105' 
+                  : 'border-[#ECE8E3]/20 bg-[#ECE8E3]/5 hover:border-[#D4AF37]/50'
               }`}>
                 
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="flex items-center px-6 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] text-sm font-bold rounded-full shadow-lg">
-                      <Star className="w-4 h-4 mr-2" />
+                    <div className="flex items-center px-4 py-1 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] text-sm font-semibold rounded-full">
+                      <Star className="w-4 h-4 mr-1" />
                       Most Popular
                     </div>
                   </div>
@@ -194,79 +170,40 @@ const Pricing: React.FC = () => {
 
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-2">{plan.name}</h3>
-                  <p className="text-[#ECE8E3]/70 mb-6">{plan.description}</p>
-                  <div className="mb-4">
-                    <span className="text-5xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-                      {getPrice(plan)}
-                    </span>
-                    <span className="text-[#ECE8E3]/60 text-lg">{plan.period}</span>
+                  <p className="text-[#ECE8E3]/70 mb-4">{plan.description}</p>
+                  <div className="mb-2">
+                    <span className="text-4xl font-bold">{plan.price}</span>
+                    <span className="text-[#ECE8E3]/60">{plan.period}</span>
                   </div>
-                  <p className="text-sm text-[#D4AF37] font-medium">{plan.savings}</p>
+                  <p className="text-sm text-[#D4AF37]">{plan.savings}</p>
                 </div>
 
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-[#D4AF37] mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-[#ECE8E3]/80 text-sm leading-relaxed">{feature}</span>
+                      <span className="text-[#ECE8E3]/80 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <button 
-                  onClick={() => handlePayment(plan.name)}
-                  className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:-translate-y-1'
-                      : 'border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A]'
-                  }`}
-                >
+                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+                  plan.popular
+                    ? 'bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] hover:shadow-lg hover:shadow-[#D4AF37]/25'
+                    : 'border border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:text-[#D4AF37]'
+                }`}>
                   {plan.cta}
-                  {plan.cta !== 'Most Popular' && <ArrowRight className="inline-block w-5 h-5 ml-2" />}
+                  {plan.cta !== 'Most Popular' && <ArrowRight className="inline-block w-4 h-4 ml-2" />}
                 </button>
               </div>
             ))}
           </div>
         </FadeInUp>
 
-        {/* Payment Methods */}
-        <FadeInUp delay={200} className="mb-20">
-          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-3xl p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-                Secure Payment Methods
-              </h2>
-              <p className="text-[#ECE8E3]/80">
-                We support all major payment methods for your convenience
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl">
-                <CreditCard className="w-12 h-12 text-[#D4AF37] mb-4" />
-                <h3 className="font-semibold mb-2">Cards & UPI</h3>
-                <p className="text-[#ECE8E3]/70 text-sm">Credit cards, debit cards, and UPI payments</p>
-              </div>
-              
-              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl">
-                <Shield className="w-12 h-12 text-[#D4AF37] mb-4" />
-                <h3 className="font-semibold mb-2">Bank Transfer</h3>
-                <p className="text-[#ECE8E3]/70 text-sm">Direct bank transfers and net banking</p>
-              </div>
-              
-              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl">
-                <Zap className="w-12 h-12 text-[#D4AF37] mb-4" />
-                <h3 className="font-semibold mb-2">Instant Processing</h3>
-                <p className="text-[#ECE8E3]/70 text-sm">Real-time payment processing and confirmation</p>
-              </div>
-            </div>
-          </div>
-        </FadeInUp>
-
         {/* Add-ons */}
-        <FadeInUp delay={300} className="mb-20">
+        <FadeInUp delay={200} className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
               Powerful Add-ons
             </h2>
             <p className="text-xl text-[#ECE8E3]/80 max-w-3xl mx-auto">
@@ -276,19 +213,62 @@ const Pricing: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {addOns.map((addon, index) => (
-              <div key={index} className="p-6 bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl hover:border-[#D4AF37]/30 transition-all duration-200 hover:shadow-lg hover:shadow-[#D4AF37]/10">
+              <div key={index} className="p-6 bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl hover:border-[#D4AF37]/30 transition-all duration-300">
                 <h3 className="font-semibold mb-2">{addon.name}</h3>
                 <p className="text-2xl font-bold text-[#D4AF37] mb-3">{addon.price}</p>
-                <p className="text-[#ECE8E3]/70 text-sm leading-relaxed">{addon.description}</p>
+                <p className="text-[#ECE8E3]/70 text-sm">{addon.description}</p>
               </div>
             ))}
+          </div>
+        </FadeInUp>
+
+        {/* Features Comparison */}
+        <FadeInUp delay={300} className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
+              Compare Plans
+            </h2>
+            <p className="text-xl text-[#ECE8E3]/80">
+              See what's included in each plan to make the right choice for your business.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border border-[#ECE8E3]/20 rounded-xl overflow-hidden">
+              <thead className="bg-[#ECE8E3]/5">
+                <tr>
+                  <th className="text-left p-4 font-semibold">Features</th>
+                  <th className="text-center p-4 font-semibold">Starter</th>
+                  <th className="text-center p-4 font-semibold bg-[#D4AF37]/10">Professional</th>
+                  <th className="text-center p-4 font-semibold">Enterprise</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#ECE8E3]/10">
+                {[
+                  ['Credit Limit', '₹5L', '₹25L', '₹50L+'],
+                  ['Monthly Transactions', '50', 'Unlimited', 'Unlimited'],
+                  ['Analytics Dashboard', 'Basic', 'Advanced', 'Custom'],
+                  ['Support', 'Email', 'Priority', '24/7 Dedicated'],
+                  ['API Access', '❌', '✅', '✅'],
+                  ['White Label', '❌', '❌', '✅'],
+                  ['SLA Guarantee', '❌', '❌', '99.9%']
+                ].map((row, index) => (
+                  <tr key={index}>
+                    <td className="p-4 font-medium">{row[0]}</td>
+                    <td className="p-4 text-center text-[#ECE8E3]/70">{row[1]}</td>
+                    <td className="p-4 text-center bg-[#D4AF37]/5 text-[#ECE8E3]/70">{row[2]}</td>
+                    <td className="p-4 text-center text-[#ECE8E3]/70">{row[3]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </FadeInUp>
 
         {/* FAQ */}
         <FadeInUp delay={400} className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
               Frequently Asked Questions
             </h2>
             <p className="text-xl text-[#ECE8E3]/80">
@@ -298,38 +278,35 @@ const Pricing: React.FC = () => {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 hover:border-[#D4AF37]/20 transition-colors duration-200">
-                <h3 className="font-semibold mb-4 text-lg text-[#D4AF37]">{faq.question}</h3>
-                <p className="text-[#ECE8E3]/80 leading-relaxed">{faq.answer}</p>
+              <div key={index} className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl p-6">
+                <h3 className="font-semibold mb-3 text-lg">{faq.question}</h3>
+                <p className="text-[#ECE8E3]/70 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
         </FadeInUp>
 
-        {/* Final CTA */}
+        {/* CTA */}
         <FadeInUp delay={500} className="text-center">
-          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-3xl p-12 backdrop-blur-sm">
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
+          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-2xl p-12">
+            <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-[#ECE8E3]/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-[#ECE8E3]/80 mb-8 max-w-2xl mx-auto">
               Join thousands of businesses already growing with Gallaa. Start your free trial today.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => handlePayment('Professional')}
-                className="px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1"
-              >
+              <button className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold text-lg rounded-lg hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-300">
                 Start Free Trial
                 <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
-              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold">
+              <button className="px-8 py-4 border border-[#ECE8E3]/20 hover:border-[#D4AF37] rounded-lg transition-colors">
                 Contact Sales
               </button>
             </div>
 
-            <p className="text-[#ECE8E3]/60 mt-8 text-sm">
+            <p className="text-[#ECE8E3]/60 mt-6 text-sm">
               14-day free trial • No credit card required • Cancel anytime
             </p>
           </div>
