@@ -57,6 +57,7 @@ const Home: React.FC = () => {
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-[#ECE8E3]/80 leading-relaxed mb-12 max-w-4xl mx-auto">
+                                              Made by ocagency
               India's first credit-as-inventory marketplace. Retailers get goods bundles, not cash. 
               Manufacturers get guaranteed sales. Everyone wins with real-time settlements.
             </p>
