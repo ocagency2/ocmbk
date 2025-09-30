@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import { CheckCircle, Star, ArrowRight, CreditCard, Shield, Zap } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
 
 const Pricing: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [isAnnual, setIsAnnual] = useState(false);
 
   const plans = [
@@ -137,15 +132,8 @@ const Pricing: React.FC = () => {
   };
 
   const handlePayment = (planName: string) => {
-    // Mock payment integration with reward animation
-    const button = event?.target as HTMLElement;
-    if (button) {
-      button.classList.add('animate-pulse', 'scale-110');
-      setTimeout(() => {
-        alert(`Redirecting to payment for ${planName} plan...`);
-        button.classList.remove('animate-pulse', 'scale-110');
-      }, 500);
-    }
+    // Mock payment integration
+    alert(`Redirecting to payment for ${planName} plan...`);
   };
 
   return (
@@ -227,10 +215,10 @@ const Pricing: React.FC = () => {
 
                 <button 
                   onClick={() => handlePayment(plan.name)}
-                  className={`reward-button w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 ${
+                  className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:-translate-y-1 hover:scale-105'
-                      : 'border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] hover:-translate-y-1'
+                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:-translate-y-1'
+                      : 'border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A]'
                   }`}
                 >
                   {plan.cta}
@@ -331,12 +319,12 @@ const Pricing: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => handlePayment('Professional')}
-                className="reward-button px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1 hover:scale-105"
+                className="px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1"
               >
                 Start Free Trial
                 <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
-              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold hover:-translate-y-1">
+              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold">
                 Contact Sales
               </button>
             </div>

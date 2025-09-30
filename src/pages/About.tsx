@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { 
   Award, 
   Users, 
@@ -16,13 +15,8 @@ import {
   Zap
 } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
-import OcagencyBranding from '../components/OcagencyBranding';
 
 const About: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const stats = [
     { number: '500+', label: 'Verified Manufacturers', icon: Factory },
     { number: '2,000+', label: 'Active Retailers', icon: Store },
@@ -329,7 +323,7 @@ const About: React.FC = () => {
         </FadeInUp>
 
         {/* CTA */}
-        <FadeInUp delay={1100} className="text-center mb-20">
+        <FadeInUp delay={1100} className="text-center">
           <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-3xl p-12 backdrop-blur-sm">
             <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
               Join the Revolution
@@ -340,73 +334,12 @@ const About: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="reward-button px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1">
+              <button className="px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-200 transform hover:-translate-y-1">
                 Get Started Today
               </button>
               <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold">
                 Contact Us
               </button>
-            </div>
-          </div>
-        </FadeInUp>
-
-        {/* Ocagency Section */}
-        <FadeInUp delay={1200} className="mb-20">
-          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
-                Powered by Ocagency
-              </h2>
-              <p className="text-xl text-[#ECE8E3]/80">
-                Professional web development and digital solutions
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-[#D4AF37]">About Ocagency</h3>
-                <p className="text-[#ECE8E3]/80 leading-relaxed mb-6">
-                  Ocagency specializes in creating professional, high-performance websites and digital solutions 
-                  for businesses of all sizes. We combine cutting-edge technology with exceptional design to 
-                  deliver results that drive growth and success.
-                </p>
-                <ul className="space-y-2 text-[#ECE8E3]/70">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-[#D4AF37] mr-3" />
-                    Custom Web Development
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-[#D4AF37] mr-3" />
-                    E-commerce Solutions
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-[#D4AF37] mr-3" />
-                    Digital Marketing
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-[#D4AF37] mr-3" />
-                    Brand Identity Design
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 rounded-2xl p-8 mb-6">
-                  <h4 className="text-lg font-semibold mb-4">Get Your Professional Website</h4>
-                  <p className="text-[#ECE8E3]/70 mb-6">
-                    Ready to transform your business with a professional website? 
-                    Contact Ocagency for efficient, high-quality web solutions.
-                  </p>
-                  <div className="flex justify-center">
-                    <OcagencyBranding />
-                  </div>
-                </div>
-                
-                <div className="text-sm text-[#ECE8E3]/60">
-                  <p>Email: contact@ocagency.com</p>
-                  <p>Visit: ocagency.netlify.app</p>
-                </div>
-              </div>
             </div>
           </div>
         </FadeInUp>

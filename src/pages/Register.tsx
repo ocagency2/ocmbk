@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   User, 
@@ -15,10 +15,6 @@ import {
 import FadeInUp from '../components/FadeInUp';
 
 const Register: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [currentStep, setCurrentStep] = useState(1);
   const [userType, setUserType] = useState<'manufacturer' | 'retailer' | null>(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -84,17 +80,8 @@ const Register: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen px-6 py-12 bg-[#08070A] text-[#ECE8E3]">
+    <div className="min-h-screen px-6 py-12">
       <div className="max-w-4xl mx-auto">
-        {/* Logo */}
-        <FadeInUp className="text-center mb-8">
-          <img 
-            src="https://i.ibb.co/LzTVQ9cj/Gallalogo.png" 
-            alt="Gallaa Logo" 
-            className="h-16 w-auto mx-auto mb-4"
-          />
-        </FadeInUp>
-
         <FadeInUp>
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">
@@ -210,7 +197,7 @@ const Register: React.FC = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
+                          className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
                           placeholder="Enter your email"
                         />
                       </div>
@@ -226,7 +213,7 @@ const Register: React.FC = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           required
-                          className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
+                          className="w-full pl-10 pr-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
                           placeholder="+91 98765 43210"
                         />
                       </div>
@@ -242,7 +229,7 @@ const Register: React.FC = () => {
                           value={formData.password}
                           onChange={handleChange}
                           required
-                          className="w-full pl-10 pr-12 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
+                          className="w-full pl-10 pr-12 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
                           placeholder="Create a strong password"
                         />
                         <button
@@ -265,7 +252,7 @@ const Register: React.FC = () => {
                           value={formData.confirmPassword}
                           onChange={handleChange}
                           required
-                          className="w-full pl-10 pr-12 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
+                          className="w-full pl-10 pr-12 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none"
                           placeholder="Confirm your password"
                         />
                         <button
@@ -346,13 +333,13 @@ const Register: React.FC = () => {
                           value={formData.annualRevenue}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-xl focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] transition-all duration-200"
+                          className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] transition-all duration-200"
                         >
-                          <option value="" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Select range</option>
-                          <option value="50L-1Cr" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>₹50L - ₹1Cr</option>
-                          <option value="1Cr-5Cr" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>₹1Cr - ₹5Cr</option>
-                          <option value="5Cr-10Cr" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>₹5Cr - ₹10Cr</option>
-                          <option value="10Cr+" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>₹10Cr+</option>
+                          <option value="" className="bg-[#08070A] text-[#ECE8E3]">Select range</option>
+                          <option value="50L-1Cr" className="bg-[#08070A] text-[#ECE8E3]">₹50L - ₹1Cr</option>
+                          <option value="1Cr-5Cr" className="bg-[#08070A] text-[#ECE8E3]">₹1Cr - ₹5Cr</option>
+                          <option value="5Cr-10Cr" className="bg-[#08070A] text-[#ECE8E3]">₹5Cr - ₹10Cr</option>
+                          <option value="10Cr+" className="bg-[#08070A] text-[#ECE8E3]">₹10Cr+</option>
                         </select>
                       </div>
                     )}
@@ -366,13 +353,13 @@ const Register: React.FC = () => {
                             value={formData.businessType}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] transition-all duration-200"
+                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] transition-all duration-200"
                           >
-                            <option value="" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Select type</option>
-                            <option value="retail" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Retail Store</option>
-                            <option value="wholesale" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Wholesale</option>
-                            <option value="online" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Online Store</option>
-                            <option value="hybrid" style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Hybrid</option>
+                            <option value="" className="bg-[#08070A] text-[#ECE8E3]">Select type</option>
+                            <option value="retail" className="bg-[#08070A] text-[#ECE8E3]">Retail Store</option>
+                            <option value="wholesale" className="bg-[#08070A] text-[#ECE8E3]">Wholesale</option>
+                            <option value="online" className="bg-[#08070A] text-[#ECE8E3]">Online Store</option>
+                            <option value="hybrid" className="bg-[#08070A] text-[#ECE8E3]">Hybrid</option>
                           </select>
                         </div>
 
@@ -384,7 +371,7 @@ const Register: React.FC = () => {
                             value={formData.storeLocations}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
+                            className="w-full px-4 py-3 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20 text-[#ECE8E3] placeholder-[#ECE8E3]/50 transition-all duration-200"
                             placeholder="1"
                             min="1"
                           />
@@ -433,7 +420,7 @@ const Register: React.FC = () => {
                         checked={formData.agreeToTerms}
                         onChange={handleChange}
                         required
-                        className="w-5 h-5 text-[#D4AF37] bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded focus:ring-[#D4AF37] focus:ring-2 mt-1"
+                        className="w-4 h-4 text-[#D4AF37] bg-[#ECE8E3]/10 border-[#ECE8E3]/20 rounded focus:ring-[#D4AF37] focus:ring-2 mt-1"
                       />
                       <span className="ml-3 text-sm text-[#ECE8E3]/80">
                         I agree to the{' '}
@@ -450,7 +437,7 @@ const Register: React.FC = () => {
                         checked={formData.agreeToPrivacy}
                         onChange={handleChange}
                         required
-                        className="w-5 h-5 text-[#D4AF37] bg-[#ECE8E3]/10 border-2 border-[#ECE8E3]/30 rounded focus:ring-[#D4AF37] focus:ring-2 mt-1"
+                        className="w-4 h-4 text-[#D4AF37] bg-[#ECE8E3]/10 border-[#ECE8E3]/20 rounded focus:ring-[#D4AF37] focus:ring-2 mt-1"
                       />
                       <span className="ml-3 text-sm text-[#ECE8E3]/80">
                         I agree to the{' '}
@@ -469,7 +456,7 @@ const Register: React.FC = () => {
                   <button
                     type="button"
                     onClick={handlePrevious}
-                    className="px-6 py-3 border-2 border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 rounded-lg transition-all duration-200 text-[#ECE8E3]"
+                    className="px-6 py-3 border border-[#ECE8E3]/20 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 rounded-lg transition-all duration-200"
                   >
                     Previous
                   </button>
@@ -481,7 +468,7 @@ const Register: React.FC = () => {
                       type="button"
                       onClick={handleNext}
                       disabled={currentStep === 1 && !userType}
-                      className="reward-button px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center transform"
+                      className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center transform"
                     >
                       Next
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -490,7 +477,7 @@ const Register: React.FC = () => {
                     <button
                       type="submit"
                       disabled={!formData.agreeToTerms || !formData.agreeToPrivacy}
-                      className="reward-button px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center transform"
+                      className="px-6 py-3 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#D4AF37]/25 hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex items-center transform"
                     >
                       Create Account
                       <ArrowRight className="w-4 h-4 ml-2" />
