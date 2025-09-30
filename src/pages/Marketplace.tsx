@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { Search, Filter, Grid, List, Star, Heart, ShoppingCart, Eye } from 'lucide-react';
+import { Search, Filter, Grid2x2 as Grid, List, Star, Heart, ShoppingCart, Eye } from 'lucide-react';
 import FadeInUp from '../components/FadeInUp';
 
 const Marketplace: React.FC = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, LucideIcon } from 'lucide-react';
+import { ArrowRight, Video as LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface FloatingCardProps {
